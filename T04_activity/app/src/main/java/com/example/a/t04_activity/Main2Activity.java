@@ -17,7 +17,7 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("id");
 
-        Toast.makeText(Main2Activity.this, "ID : " + name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Main2Activity.this, "id : " + name, Toast.LENGTH_SHORT).show();
 
         Button btnFinish = (Button)findViewById(R.id.btnFinish);
         btnFinish.setOnClickListener(new View.OnClickListener() {
