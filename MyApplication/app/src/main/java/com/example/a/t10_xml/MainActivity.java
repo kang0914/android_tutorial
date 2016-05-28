@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = (TextView) findViewById(R.id.textView);
-        MyDomParserTask task = new MyDomParserTask(textView);
+        //MyDomParserTask task = new MyDomParserTask(textView);
+        MyPullParser task = new MyPullParser(textView);
         task.execute("http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1162058500");
     }
 }
