@@ -39,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 String path = Environment.getExternalStorageDirectory() + "/t14.jpg";
                 Bitmap bitmap;
 
-                bitmap = BitmapFactory.decodeFile(path);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 4;
 
+                bitmap = BitmapFactory.decodeFile(path, options);
                 ImageView imageView = (ImageView) findViewById(R.id.imageView);
                 imageView.setImageBitmap(bitmap);
             }
