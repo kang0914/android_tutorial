@@ -86,5 +86,15 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
+        manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
+
+        try {
+            List<Address> list = geocoder.getFromLocationName("서울", 10);
+            Address address = list.get(0);
+            Log.d("geocoding", address.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
