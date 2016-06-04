@@ -10,7 +10,33 @@
     tools:context="com.example.a.p02_location.MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+
+    <Button
+        android:layout_below="@+id/textView"
+        android:id="@+id/btnStart"
+        android:text="Start"
+        android:onClick="onBtnStartClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_below="@+id/btnStart"
+        android:id="@+id/btnStop"
+        android:text="Stop"
+        android:onClick="onBtnStopClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_below="@+id/btnStop"
+        android:id="@+id/btnView"
+        android:text="View"
+        android:onClick="onBtnViewClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
