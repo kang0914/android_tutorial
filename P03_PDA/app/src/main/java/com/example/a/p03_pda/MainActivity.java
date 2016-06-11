@@ -72,6 +72,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             client.getOrderItemDataSetSelect("" + whsOrderNumber);
+        }else if (requestCode == 0){
+            if(resultCode == RESULT_OK){
+                String contents = data.getStringExtra("SCAN_RESULT");
+                Toast.makeText(MainActivity.this, contents, Toast.LENGTH_SHORT).show();
+            }
         }
+
+    }
+
+    public void onBtnScanClick(View v){
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCAN_MODE", "ALL");
+        startActivityForResult(intent, 0);
     }
 }

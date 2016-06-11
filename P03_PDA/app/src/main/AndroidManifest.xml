@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a.p03_pda">
 
+    <uses-feature android:name="android.hardware.camera"/>
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
