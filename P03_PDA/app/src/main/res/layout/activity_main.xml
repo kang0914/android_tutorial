@@ -10,7 +10,29 @@
     tools:context="com.example.a.p03_pda.MainActivity">
 
     <TextView
+        android:id="@+id/textViewOrderNumer"
+        android:padding="8dp"
+        android:textColor="#fff"
+        android:background="#f00"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="orderNum" />
+
+    <Button
+        android:onClick="onBtnOrderSelectClick"
+        android:id="@+id/btnOrderSelect"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"
+        android:text="select"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_toLeftOf="@id/btnOrderSelect"
+        android:layout_toRightOf="@+id/textViewOrderNumer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
 </RelativeLayout>

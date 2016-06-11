@@ -17,19 +17,57 @@ import cz.msebera.android.httpclient.Header;
 public class VOLVIKClient {
     AsyncHttpClient client = new AsyncHttpClient();
 
-    public void getOrderItemDataSetSelect(){
-        client.get("http://59.150.255.121:8080/ExecuteDataSetForStoredProcedureForJson?connectionString=Data Source=59.150.255.121;Initial Catalog=IF_VOLVIK;Persist Security Info=True;User ID=sa;Password=cit1600!;&storedProcedureName=CIT_ORDERITEM_DATASET_SELECT&parameterValues=1|1|120",
+    public interface OnResponseListener {
+        public void onResponseComplete(JSONObject response);
+    }
+    public interface  OnResponseOrderItemListener{
+        public void OnResponseOrderItemComplete(JSONObject response);
+    }
+
+    OnResponseListener mListener;
+    public void setOnResponseListener(OnResponseListener listener){
+        mListener = listener;
+    }
+
+    OnResponseOrderItemListener mOrderItemListener;
+    public void setOnResponseOrderItemListener(OnResponseOrderItemListener listener){
+        mOrderItemListener = listener;
+    }
+
+    public void getOrderSelect(String workDay){
+        String url = Constans.URL_ORDER_SELECT + workDay;
+        client.get(url,
+                null, new JsonHttpResponseHandler(){
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        super.onSuccess(statusCode, headers, response);
+
+                        if(mListener != null)
+                            mListener.onResponseComplete(response);
+
+                        Log.d("VOLVIK", "" + response);
+                    }
+                });
+    }
+
+    public void getOrderItemDataSetSelect(String orderNum){
+        String url = Constans.URL_ORDER_DATASET_SELECT + orderNum + "|120";
+        client.get(url,
                     null,  new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         super.onSuccess(statusCode, headers, response);
-                        Log.d("httpClient", "" + response);
+
+                        if(mOrderItemListener != null)
+                            mOrderItemListener.OnResponseOrderItemComplete(response);
+
+                        Log.d("OrderItemDataSetSelect", "" + response);
                     }
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         super.onSuccess(statusCode, headers, response);
-                        Log.d("httpClient", "" + response);
+                        Log.d("OrderItemDataSetSelect", "" + response);
                     }
                 });
     }
