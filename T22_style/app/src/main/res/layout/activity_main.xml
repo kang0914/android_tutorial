@@ -12,13 +12,42 @@
     <TextView
         android:id="@+id/selectedTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textSize="50dp"
+        android:gravity="center"
         android:text="0" />
 
     <TextView
         android:id="@+id/workingTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#555555"
+        android:textColor="#CCCCCC"
         android:text="0" />
+
+    <TableRow android:layout_weight="1">
+        <Button
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/zeroButton"
+            android:textSize="20dp"
+            android:text="0" />
+        <Button
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/oneButton"
+            android:textSize="20dp"
+            android:text="1" />
+        <Button
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/enterButton"
+            android:textSize="20dp"
+            android:text="enter" />
+    </TableRow>
 
 </TableLayout>
