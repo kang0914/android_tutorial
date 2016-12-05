@@ -13,5 +13,17 @@ public class Preference_Activity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
+
+        // 툴바의 '<-' 버튼 만들기
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_close);
+    }
+
+    // 툴바의 '<-' 버튼 이벤트 처리
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+
+        return false;
     }
 }
